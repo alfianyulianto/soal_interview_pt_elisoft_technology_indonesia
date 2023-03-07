@@ -61,7 +61,7 @@ class UsersController extends Controller
 
     User::create($validatedData);
 
-    return redirect('/users')->with('success_create_new_user', 'New user has been created! Ask the user to log in using the mobile number!');
+    return redirect('/users')->with('success_create_new_user', 'New user ' . $request->name . ' has been created! Ask the user to log in using the mobile number!');
   }
 
   /**
@@ -84,6 +84,7 @@ class UsersController extends Controller
   public function edit(User $user)
   {
     return view('users.edit', [
+      'title' => 'Update User ' . $user->name,
       'user' => $user
     ]);
   }
@@ -95,9 +96,30 @@ class UsersController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(Request $request, User $user)
   {
-    //
+    $role = [
+      'name' => ['required', 'string'],
+      'email' => ['required', 'email:dns'],
+      'jenis_kelamin' => ['required'],
+      'alamat' => ['required'],
+      'no_ponsel' => ['required', 'numeric']
+    ];
+
+    // cek jika tidak merubah email
+    if ($user->email != $request->email) {
+      $role['email'] = ['required', 'email:dns', 'unique:App\Models\User,email'];
+    }
+    // cek jika tidak merubah no_ponsel
+    if ($user->no_ponsel != $request->no_ponsel) {
+      $role['no_ponsel'] = ['required', 'numeric', 'unique:App\Models\User,no_ponsel'];
+    }
+
+    $validatedData = $request->validate($role);
+
+    $user->update($validatedData);
+
+    return redirect('/users')->with('success_update_user', 'Successfully updated ' . $request->name . ' user data');
   }
 
   /**

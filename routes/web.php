@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TerbilangController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -44,3 +45,6 @@ Route::get('/product/stock', function () {
       'bank_id' => 2
     ]);
 })->middleware('auth');
+
+Route::get('/terbilang', [TerbilangController::class, 'index']);
+Route::post('/terbilang', [TerbilangController::class, 'terbilang']);

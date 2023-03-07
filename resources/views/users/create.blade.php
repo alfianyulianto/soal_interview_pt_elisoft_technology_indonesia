@@ -15,16 +15,26 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Full name"
-                        name="name" id="name">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control @error('name') is-invalid @enderror"
+                        placeholder="Full name" name="name" id="name">
+                      @error('name')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
-                        name="email" id="email">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control @error('email') is-invalid @enderror"
+                        placeholder="Enter email" name="email" id="email">
+                      @error('email')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                 </div>
@@ -32,32 +42,68 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="jenis_kelamin">Gender</label>
-                      <div class="custom-control custom-radio">
-                        <input class="custom-control-input" type="radio" id="jenis_kelamin_pria" name="jenis_kelamin"
-                          value="Laki-Laki">
-                        <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
-                      </div>
-                      <div class="custom-control custom-radio">
-                        <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
-                          name="jenis_kelamin" value="Perempuan">
-                        <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
-                      </div>
+                      @if (old('jenis_kelamin'))
+                        @if (old('jenis_kelamin') == 'Laki-Laki')
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="jenis_kelamin_pria"
+                              name="jenis_kelamin" value="Laki-Laki" checked>
+                            <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
+                              name="jenis_kelamin" value="Perempuan">
+                            <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
+                          </div>
+                        @else
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="jenis_kelamin_pria"
+                              name="jenis_kelamin" value="Laki-Laki">
+                            <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
+                              name="jenis_kelamin" value="Perempuan" checked>
+                            <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
+                          </div>
+                        @endif
+                      @else
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="jenis_kelamin_pria" name="jenis_kelamin"
+                            value="Laki-Laki" checked>
+                          <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
+                            name="jenis_kelamin" value="Perempuan">
+                          <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
+                        </div>
+                      @endif
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Phone</label>
-                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Phone"
-                        name="no_ponsel" id="no_ponsel">
+                      <label for="no_ponsel">Phone</label>
+                      <input type="number" class="form-control @error('no_ponsel') is-invalid @enderror"
+                        placeholder="Phone" name="no_ponsel" id="no_ponsel">
+                      @error('no_ponsel')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Address</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Your address"
-                        name="alamat" id="alamat">
+                      <label for="alamat">Address</label>
+                      <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                        placeholder="Your address" name="alamat" id="alamat">
+                      @error('alamat')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                 </div>

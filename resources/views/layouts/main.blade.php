@@ -17,6 +17,10 @@
   <link rel="stylesheet"
     href="{{ url('') }}/tamplates/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ url('') }}/tamplates/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+
+  <!-- jQuery -->
+  <script src="{{ url('') }}/tamplates/plugins/jquery/jquery.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -63,8 +67,6 @@
   </div>
   <!-- ./wrapper -->
 
-  <!-- jQuery -->
-  <script src="{{ url('') }}/tamplates/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="{{ url('') }}/tamplates/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- DataTables  & Plugins -->
@@ -89,6 +91,10 @@
       });
     });
   </script>
+  <!-- jquery-validation -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
   <!-- AdminLTE App -->
   <script src="{{ url('') }}/tamplates/dist/js/adminlte.js"></script>
   <!-- AdminLTE for demo purposes -->

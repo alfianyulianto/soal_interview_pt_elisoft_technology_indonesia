@@ -10,21 +10,32 @@
         <div class="card-body">
           <div class="row">
             <div class="col-lg-9">
-              <form action="/users/{{}}" method="post">
+              <form action="/users/{{ $user->id }}" method="post">
                 @csrf
+                @method('put')
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Name</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Full name"
-                        name="name" id="name" value="{{ old('name', $user->name) }}">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control @error('name') is-invalid @enderror"
+                        placeholder="Full name" name="name" id="name" value="{{ old('name', $user->name) }}">
+                      @error('name')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Email</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
-                        name="email" id="email" {{ old('email', $user->email) }}>
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control @error('email') is-invalid @enderror"
+                        placeholder="Enter email" name="email" id="email" value="{{ old('email', $user->email) }}">
+                      @error('email')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                 </div>
@@ -59,22 +70,34 @@
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Phone</label>
-                      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Phone"
-                        name="no_ponsel" id="no_ponsel" {{ old('no_ponsel', $user->no_ponsel) }}>
+                      <label for="no_ponsel">Phone</label>
+                      <input type="number" class="form-control @error('no_ponsel') is-invalid @enderror"
+                        placeholder="Phone" name="no_ponsel" id="no_ponsel"
+                        value="{{ old('no_ponsel', $user->no_ponsel) }}">
+                      @error('no_ponsel')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-lg-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Address</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Your address"
-                        name="alamat" id="alamat" {{ old('alamat', $user->alamat) }}>
+                      <label for="alamat">Address</label>
+                      <input type="text" class="form-control @error('alamat') is-invalid @enderror"
+                        placeholder="Your address" name="alamat" id="alamat"
+                        value="{{ old('alamat', $user->alamat) }}">
+                      @error('alamat')
+                        <div id="validationServer04Feedback" class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
                     </div>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-info">Create User</button>
+                <button type="submit" class="btn btn-info">Update User</button>
               </form>
             </div>
           </div>

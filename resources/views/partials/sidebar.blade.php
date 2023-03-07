@@ -63,7 +63,7 @@
          </li>
          <li class="nav-item menu-open">
            <a href="/api/users" class="nav-link {{ Request::is('product/stock') ? 'active' : '' }}">
-             <i class="fab fa-product-hunt"></i>
+             <i class="fas fa-fire"></i>
              <p>
                API
              </p>
