@@ -41,7 +41,6 @@
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="jenis_kelamin">Gender</label>
                       @if (old('jenis_kelamin'))
                         @if (old('jenis_kelamin') == 'Laki-Laki')
                           <div class="custom-control custom-radio">

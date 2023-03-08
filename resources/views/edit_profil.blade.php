@@ -8,6 +8,11 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+          @if ($message_notification)
+            <div class="alert alert-warning mt-3" role="alert">
+              {{ $message_notification }}
+            </div>
+          @endif
           <div class="row">
             <div class="col-lg-9">
               <form action="/users/{{ $user->id }}" method="post">
@@ -43,31 +48,31 @@
                   <div class="col-lg-6">
                     <div class="form-group">
                       @if (old('jenis_kelamin'))
-                        @if (old('jenis_kelamin', $user->jenis_kelamin) == 'Laki-Laki')
-                          <div class="custom-control custom-radio">
-                            <input class="custom-control-input" type="radio" id="jenis_kelamin_pria"
-                              name="jenis_kelamin" value="Laki-Laki" checked>
-                            <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                            <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
-                              name="jenis_kelamin" value="Perempuan">
-                            <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
-                          </div>
-                        @else
-                          <div class="custom-control custom-radio">
-                            <input class="custom-control-input" type="radio" id="jenis_kelamin_pria"
-                              name="jenis_kelamin" value="Laki-Laki">
-                            <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
-                          </div>
-                          <div class="custom-control custom-radio">
-                            <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
-                              name="jenis_kelamin" value="Perempuan" checked>
-                            <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
-                          </div>
-                        @endif
+                          @if (old('jenis_kelamin', $user->jenis_kelamin) == 'Laki-Laki')
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="jenis_kelamin_pria" name="jenis_kelamin"
+                            value="Laki-Laki" checked>
+                          <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
+                            name="jenis_kelamin" value="Perempuan">
+                          <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
+                        </div>
                       @else
                         <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="jenis_kelamin_pria" name="jenis_kelamin"
+                            value="Laki-Laki">
+                          <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input class="custom-control-input" type="radio" id="jenis_kelamin_perempuan"
+                            name="jenis_kelamin" value="Perempuan" checked>
+                          <label for="jenis_kelamin_perempuan" class="custom-control-label">Perempuan</label>
+                        </div>
+                      @endif
+                      @else
+                          <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="jenis_kelamin_pria" name="jenis_kelamin"
                             value="Laki-Laki" checked>
                           <label for="jenis_kelamin_pria" class="custom-control-label">Laki-Laki</label>

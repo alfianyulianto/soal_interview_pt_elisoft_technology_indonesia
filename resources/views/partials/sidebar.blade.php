@@ -62,10 +62,26 @@
            </a>
          </li>
          <li class="nav-item menu-open">
-           <a href="/api/users" class="nav-link {{ Request::is('product/stock') ? 'active' : '' }}">
+           <a href="/api/users" class="nav-link {{ Request::is('api/users') ? 'active' : '' }}">
              <i class="fas fa-fire"></i>
              <p>
                API
+             </p>
+           </a>
+         </li>
+         <li class="nav-item menu-open">
+           <a href="/swapping" class="nav-link {{ Request::is('swapping') ? 'active' : '' }}">
+             <i class="fas fa-exchange"></i>
+             <p>
+               Swapping Variable
+             </p>
+           </a>
+         </li>
+         <li class="nav-item menu-open">
+           <a href="/terbilang" class="nav-link {{ Request::is('terbilang') ? 'active' : '' }}">
+             <i class="fas fa-money-bill-alt"></i>
+             <p>
+               Terbilang
              </p>
            </a>
          </li>

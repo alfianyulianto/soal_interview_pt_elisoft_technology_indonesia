@@ -20,7 +20,6 @@ return new class extends Migration
       $table->text('alamat')->nullable();
       $table->string('email')->unique();
       $table->string('no_ponsel')->nullable();
-      $table->string('foto')->default('avatar-3.png');
       $table->string('password');
       $table->rememberToken();
       $table->timestamps();

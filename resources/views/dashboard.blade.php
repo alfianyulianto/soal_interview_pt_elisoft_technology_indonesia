@@ -39,10 +39,6 @@
                       <i class="fas fa-phone"></i> {{ $user->no_ponsel }}
                       </span>
                     </p>
-                    <div class="buttons mt-2">
-                      <a href="/upload/foto" class="btn btn-icon icon-left btn-primary"><i class="fas fa-upload"></i>
-                        Upload Image</a>
-                    </div>
                   </div>
                 </div>
               </div>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Riskihajar\Terbilang\Facades\Terbilang;
-use Riskihajar\Terbilang\Terbilang as TerbilangTerbilang;
 
 class TerbilangController extends Controller
 {
@@ -17,8 +17,9 @@ class TerbilangController extends Controller
 
   public function terbilang(Request $request)
   {
-    return $request;
-    $terbilang  = Terbilang::make($request->number);
+    $number = Str::of($request->number)->explode('.');
+    $resultNumber = $number->join('');
+    $terbilang  = Terbilang::make($resultNumber);
 
     return response()->json(['terbilang' => $terbilang]);
   }

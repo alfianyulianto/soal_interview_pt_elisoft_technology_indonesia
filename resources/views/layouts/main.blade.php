@@ -88,13 +88,10 @@
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-      });
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
   </script>
-  <!-- jquery-validation -->
-  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
   <!-- AdminLTE App -->
   <script src="{{ url('') }}/tamplates/dist/js/adminlte.js"></script>
   <!-- AdminLTE for demo purposes -->
